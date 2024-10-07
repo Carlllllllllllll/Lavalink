@@ -1,6 +1,6 @@
-# REST and WS server
+# REST and WS server configuration
 server:
-  port: 2333
+  port: ${PORT}  # Use the environment variable provided by Render
   address: 0.0.0.0
 
 lavalink:
@@ -15,10 +15,10 @@ lavalink:
       mixer: true
       http: true
       local: false
-    bufferDurationMs: 400 # NAS buffer duration
-    frameBufferDurationMs: 5000 # Buffered audio duration in milliseconds
-    youtubePlaylistLoadLimit: 6 # Number of pages at 100 each
-    playerUpdateInterval: 5 # Frequency to send player updates to clients, in seconds
+    bufferDurationMs: 400  # NAS buffer duration
+    frameBufferDurationMs: 5000  # Buffered audio duration in milliseconds
+    youtubePlaylistLoadLimit: 6  # Number of pages at 100 each
+    playerUpdateInterval: 5  # Frequency to send player updates to clients, in seconds
     youtubeSearchEnabled: true
     soundcloudSearchEnabled: true
     gc-warnings: true
