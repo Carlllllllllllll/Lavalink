@@ -1,6 +1,5 @@
-# REST and WS server configuration
 server:
-  port: ${PORT}  # Use the environment variable provided by Render
+  port: 8080
   address: 0.0.0.0
 
 lavalink:
@@ -12,32 +11,28 @@ lavalink:
       soundcloud: true
       twitch: true
       vimeo: true
-      mixer: true
       http: true
       local: false
-    bufferDurationMs: 400  # NAS buffer duration
-    frameBufferDurationMs: 5000  # Buffered audio duration in milliseconds
-    youtubePlaylistLoadLimit: 6  # Number of pages at 100 each
-    playerUpdateInterval: 5  # Frequency to send player updates to clients, in seconds
+    bufferDurationMs: 1000
+    youtubePlaylistLoadLimit: 6
+    playerUpdateInterval: 5
     youtubeSearchEnabled: true
     soundcloudSearchEnabled: true
-    gc-warnings: true
 
 metrics:
   prometheus:
-    enabled: false
+    enabled: true
     endpoint: /metrics
 
 sentry:
   dsn: ""
-  environment: ""
+  environment: "production"
 
 logging:
   file:
     max-history: 30
     max-size: 1GB
   path: ./logs/
-
   level:
     root: INFO
     lavalink: INFO
