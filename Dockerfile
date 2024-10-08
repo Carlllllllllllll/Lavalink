@@ -1,15 +1,17 @@
+# Use OpenJDK 17 as the base image for Lavalink
 FROM openjdk:17-jdk-slim
 
-WORKDIR /app
+# Set the working directory inside the container
+WORKDIR /opt/Lavalink
 
-# Download Lavalink jar
-ADD https://github.com/freyacodes/Lavalink/releases/download/3.7.5/Lavalink.jar .
+# Download Lavalink v3 from the official release page
+ADD https://github.com/freyacodes/Lavalink/releases/download/3.4/Lavalink.jar /opt/Lavalink/Lavalink.jar
 
-# Copy your configuration file
-COPY ./application.yml .
+# Copy your Lavalink configuration file (application.yml) into the container
+COPY ./application.yml /opt/Lavalink/application.yml
 
-# Expose port (use default Render dynamic port)
-EXPOSE ${PORT}
+# Expose the port that Lavalink will run on
+EXPOSE 8080
 
-# Start Lavalink server
+# Run Lavalink when the container starts
 CMD ["java", "-jar", "Lavalink.jar"]
